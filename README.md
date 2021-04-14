@@ -74,8 +74,8 @@ Depending on the type of calibration, each camera identifier has intrinsic and p
 The intrinsics section has the keys "type" that specifies the chosen camera model and "parameters" that holds the
 calibrated parameters corresponding to the camera model.
 
-The extrinsics of a sensor <img src="https://latex.codecogs.com/gif.latex?S_i" /> is an SE(3) Pose <img src="https://latex.codecogs.com/gif.latex?P_{S_i E}" /> represented as axis-angle and translation.
-<img src="https://latex.codecogs.com/gif.latex?P_{S_i E}" /> transforms from frame <img src="https://latex.codecogs.com/gif.latex?E" /> to frame <img src="https://latex.codecogs.com/gif.latex?S_i" /> where <img src="https://latex.codecogs.com/gif.latex?E" /> is the reference frame and <img src="https://latex.codecogs.com/gif.latex?S_i" /> is the frame
+The extrinsics of a sensor <img src="https://latex.codecogs.com/gif.latex?S_i" /> is an SE(3) Pose <img src="https://latex.codecogs.com/gif.latex?P_%7BS_i%20E%7D" /> represented as axis-angle and translation.
+<img src="https://latex.codecogs.com/gif.latex?P_%7BS_i%20E%7D" /> transforms from frame <img src="https://latex.codecogs.com/gif.latex?E" /> to frame <img src="https://latex.codecogs.com/gif.latex?S_i" /> where <img src="https://latex.codecogs.com/gif.latex?E" /> is the reference frame and <img src="https://latex.codecogs.com/gif.latex?S_i" /> is the frame
 of sensor <img src="https://latex.codecogs.com/gif.latex?i" />.  
 Thus the transformation from Sensor <img src="https://latex.codecogs.com/gif.latex?S_0" /> to <img src="https://latex.codecogs.com/gif.latex?S_1" /> is given by
 

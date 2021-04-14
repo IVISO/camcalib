@@ -74,19 +74,19 @@ Depending on the type of calibration, each camera identifier has intrinsic and p
 The intrinsics section has the keys "type" that specifies the chosen camera model and "parameters" that holds the
 calibrated parameters corresponding to the camera model.
 
-The extrinsics of a sensor $`S_i`$ is an SE(3) Pose $`P_{S_i E}`$ represented as axis-angle and translation.
-$`P_{S_i E}`$ transforms from frame $`E`$ to frame $`S_i`$ where $`E`$ is the reference frame and $`S_i`$ is the frame
-of sensor $`i`$.  
-Thus the transformation from Sensor $`S_0`$ to $`S_1`$ is given by
-```math
-P_{S_1 S_0} = P_{S_1 E} * P_{S_0 E}^{-1}
-```
+The extrinsics of a sensor <img src="https://latex.codecogs.com/gif.latex?S_i" /> is an SE(3) Pose <img src="https://latex.codecogs.com/gif.latex?P_{S_i E}" /> represented as axis-angle and translation.
+<img src="https://latex.codecogs.com/gif.latex?P_{S_i E}" /> transforms from frame <img src="https://latex.codecogs.com/gif.latex?E" /> to frame <img src="https://latex.codecogs.com/gif.latex?S_i" /> where <img src="https://latex.codecogs.com/gif.latex?E" /> is the reference frame and <img src="https://latex.codecogs.com/gif.latex?S_i" /> is the frame
+of sensor <img src="https://latex.codecogs.com/gif.latex?i" />.  
+Thus the transformation from Sensor <img src="https://latex.codecogs.com/gif.latex?S_0" /> to <img src="https://latex.codecogs.com/gif.latex?S_1" /> is given by
+
+![equation](https://latex.codecogs.com/gif.latex?P_%7BS_1%20S_0%7D%20%3D%20P_%7BS_1%20E%7D%20*%20P_%7BS_0%20E%7D%5E%7B-1%7D)
+
 #### Note:
-Most of the time, the reference frame $`E`$ coincides with the frame of a sensor e.g. $`S_0`$ (called primary).
-Then the extrinsics of this sensor is the identity and the transformation of any other sensor frame $`S_0`$ to $`S_i`$ is simply the extrinsics given for $`S_i`$.
-```math
-P_{S_i S_0} = P_{S_i E}
-```
+Most of the time, the reference frame <img src="https://latex.codecogs.com/gif.latex?E" /> coincides with the frame of a sensor e.g. <img src="https://latex.codecogs.com/gif.latex?S_0" /> (called primary).
+Then the extrinsics of this sensor is the identity and the transformation of any other sensor frame <img src="https://latex.codecogs.com/gif.latex?S_0" /> to <img src="https://latex.codecogs.com/gif.latex?S_i" /> is simply the extrinsics given for <img src="https://latex.codecogs.com/gif.latex?S_i" />.
+
+![equation](https://latex.codecogs.com/gif.latex?P_%7BS_i%20S_0%7D%20%3D%20P_%7BS_i%20E%7D)
+
 An example results file could look like the following:  
 
 ```yaml

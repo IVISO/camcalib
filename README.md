@@ -5,6 +5,9 @@ The latest version is available [here](https://github.com/IVISO/camcalib/release
 
 You can purchase a license [here](https://www.camcalib.io/plans-pricing).
 
+You can try camcalib 14 days for free. Just open the AppImage and create a demo key.
+The calibration results in the demo version are rounded. If you need results with higher precision, you need to buy a license [here](https://www.camcalib.io/plans-pricing).
+
 For more information visit our [website](https://www.camcalib.io/).
 
 If you want to stream data from IDS cameras you need to install the driver from https://en.ids-imaging.com/downloads.html.

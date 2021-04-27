@@ -53,6 +53,12 @@ dataset
 Currently, [AprilTag](https://github.com/ethz-asl/kalibr/wiki/calibration-targets) and [ChArUco](https://docs.opencv.org/3.4/df/d4a/tutorial_charuco_detection.html) boards are supported. This will change in the future.  
 If you have troubles to get one of these, don't hesitate to [contact us](mailto:info@camcalib.io).
 
+### Imu
+
+Please ensure that:
+  * accelerometer values are in <img src="https://latex.codecogs.com/gif.latex?\frac{m}{sec^{2}}" />
+  * gyroscope values are in <img src="https://latex.codecogs.com/gif.latex?\frac{rad}{sec}" />
+
 ### Camera Model
 
 Supported camera models are 

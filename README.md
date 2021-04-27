@@ -56,8 +56,9 @@ If you have troubles to get one of these, don't hesitate to [contact us](mailto:
 ### Imu
 
 Please ensure that:
-  * accelerometer values are in <img src="https://latex.codecogs.com/gif.latex?\frac{m}{sec^{2}}" />
-  * gyroscope values are in <img src="https://latex.codecogs.com/gif.latex?\frac{rad}{sec}" />
+
+  * accelerometer values are in <img src="https://latex.codecogs.com/gif.latex?\frac{m}{sec^{2}}" />.
+  * gyroscope values are in <img src="https://latex.codecogs.com/gif.latex?\frac{rad}{sec}" />.
 
 ### Camera Model
 

@@ -1,4 +1,5 @@
 # camcalib
+
 ### Camera calibration made easy
 
 The latest version is available [here](https://github.com/IVISO/camcalib/releases).
@@ -7,42 +8,44 @@ You can purchase a license [here](https://www.camcalib.io/plans-pricing).
 
 You can find some charuco boards to get you started [here](https://github.com/IVISO/camcalib/tree/main/charuco_boards).
 
-You can try camcalib 14 days for free. Just open the AppImage and create a demo key.
-The calibration results in the demo version are rounded. If you need results with higher precision, you need to buy a license [here](https://www.camcalib.io/plans-pricing).
+You can try camcalib 14 days for free. Just open the AppImage and create a demo key. The calibration results in the demo
+version are rounded. If you need results with higher precision, you need to buy a
+license [here](https://www.camcalib.io/plans-pricing).
 
 For more information visit our [website](https://www.camcalib.io/).
 
-If you want to stream data from IDS cameras you need to install the driver from https://en.ids-imaging.com/downloads.html.
-
+If you want to stream data from IDS cameras you need to install the driver
+from https://en.ids-imaging.com/downloads.html.
 
 ### Bugs and features
 
-If you encounter any problems or have a feature request you can check the [issues page](https://github.com/IVISO/camcalib/issues) and open a new issue.
-
+If you encounter any problems or have a feature request you can check
+the [issues page](https://github.com/IVISO/camcalib/issues) and open a new issue.
 
 ## Documentation
 
 ### Calibration Data
 
-If calibration data is loaded from disk, there are currently two ways.
-Either the data must be provided as indexed ROS bag or as PNG images structured in folders.
-Currently, PNG images are supported.
+If calibration data is loaded from disk, there are currently two ways. Either the data must be provided as indexed ROS
+bag or structured in folders as images or videos. Currently, PNG and JPG/JPEG images or MOV, AVI and MP4 are supported.
 
-For the folder method, it is necessary that your images are structured in subfolders.
-The names of the subfolders are taken as unique camera ids.
+For the folder method, if you provide images, it is necessary that the images are structured in subfolders. If you have
+videos, just place them inside the folder. The names of the subfolders or videos are taken as unique camera ids.
 
-For the **extrinsic calibration** it is necessary that the images are recognised as synchronised.
-Therefore, images, that are taken at the exact same time, must have the same filename.
-If timestamps are used for the image filename, use "_" as decimal seperator.  
-For example:
+For the **extrinsic calibration** it is necessary that the images are recognised as synchronised. Therefore, images,
+that are taken at the exact same time, must have the same filename. If timestamps are used for the image filename,
+use "_" as decimal seperator. Video files have internal timestamps, depending on their FPS, starting from 0.0s. For
+example:
+
 ```
 dataset
-├── cam0
+├── cam0.mov
+├── cam1
 │   ├── 0_03.png
 │   ├── 0_25.png
 │   ├──     ...
 │   └── 9_76.png
-├── cam1
+├── cam2
 │   ├── 0_03.png
 │   ├── 0_25.png
 │   ├──     ...
@@ -52,54 +55,69 @@ dataset
 
 ### Calibration board
 
-Currently, [AprilTag](https://github.com/ethz-asl/kalibr/wiki/calibration-targets) and [ChArUco](https://docs.opencv.org/3.4/df/d4a/tutorial_charuco_detection.html) boards are supported. This will change in the future.  
+Currently, [AprilTag](https://github.com/ethz-asl/kalibr/wiki/calibration-targets)
+and [ChArUco](https://docs.opencv.org/3.4/df/d4a/tutorial_charuco_detection.html) boards are supported. This will change
+in the future.  
 If you have troubles to get one of these, don't hesitate to [contact us](mailto:info@camcalib.io).
 
 ### Imu
 
 Please ensure that:
 
-  * accelerometer values are in <img src="https://latex.codecogs.com/gif.latex?\frac{m}{sec^{2}}" />.
-  * gyroscope values are in <img src="https://latex.codecogs.com/gif.latex?\frac{rad}{sec}" />.
+* accelerometer values are in <img src="https://latex.codecogs.com/gif.latex?\frac{m}{sec^{2}}" />.
+* gyroscope values are in <img src="https://latex.codecogs.com/gif.latex?\frac{rad}{sec}" />.
 
 ### Camera Model
 
-Supported camera models are 
+Supported camera models are
+
 - Pinhole (fx, fy, cx, cy):
   * fx, fy: focal length, cx, cy: image center
   * for cameras without distortion
-- PinholeRadTan (fx, fy, cx, cy, k1, k2, p1, p2): ([details](https://docs.opencv.org/3.4.12/dc/dbb/tutorial_py_calibration.html))
+- PinholeRadTan (fx, fy, cx, cy, k1, k2, p1,
+  p2): ([details](https://docs.opencv.org/3.4.12/dc/dbb/tutorial_py_calibration.html))
   * fx, fy: focal length; cx, cy: image center; k1, k2: radial distortion; p1, p2: tangential distortion
   * common model compatible with openCV, matlab, etc.
+- KannalaBrandt (fx, fy, cx, cy, k1, k2, k3,
+  k4): ([details](https://docs.opencv.org/3.4/db/d58/group__calib3d__fisheye.html#details))
+  * fx, fy: focal length; cx, cy: image center; k1, k2, k3, k4: equidistant distortion
+  * common model for wide FOV cameras compatible with openCV, matlab, etc.
 - DoubleSphere (fx, fy, cx, cy, xi, alpha): ([details](https://arxiv.org/pdf/1807.08957v1.pdf))
   * fx, fy: focal length; cx, cy: image center; xi: sphere shift; alpha: image plane shift
   * works with all kind of lens distortion even with fisheye
   * few distortion parameters (xi, alpha) makes optimization more robust
 
-
 ### Calibration Result
 
-Calibration results can be exported as YAML file.
-The parameters can then be found in the "sensors" section.
-Depending on the type of calibration, each camera identifier has intrinsic and possibly extrinsic parameters.
+Calibration results can be exported as YAML file. The parameters can then be found in the "sensors" section. Depending
+on the type of calibration, each camera identifier has intrinsic and possibly extrinsic parameters.
 
 The intrinsics section has the keys "type" that specifies the chosen camera model and "parameters" that holds the
 calibrated parameters corresponding to the camera model.
 
-The extrinsics of a sensor <img src="https://latex.codecogs.com/gif.latex?S_i" /> is an SE(3) Pose <img src="https://latex.codecogs.com/gif.latex?P_%7BS_i%20E%7D" /> represented as axis-angle and translation.
-<img src="https://latex.codecogs.com/gif.latex?P_%7BS_i%20E%7D" /> transforms from frame <img src="https://latex.codecogs.com/gif.latex?E" /> to frame <img src="https://latex.codecogs.com/gif.latex?S_i" /> where <img src="https://latex.codecogs.com/gif.latex?E" /> is the reference frame and <img src="https://latex.codecogs.com/gif.latex?S_i" /> is the frame
-of sensor <img src="https://latex.codecogs.com/gif.latex?i" />.  
-Thus the transformation from Sensor <img src="https://latex.codecogs.com/gif.latex?S_0" /> to <img src="https://latex.codecogs.com/gif.latex?S_1" /> is given by
+The extrinsics of a sensor <img src="https://latex.codecogs.com/gif.latex?S_i" /> is an SE(3)
+Pose <img src="https://latex.codecogs.com/gif.latex?P_%7BS_i%20E%7D" /> represented as axis-angle and translation.
+<img src="https://latex.codecogs.com/gif.latex?P_%7BS_i%20E%7D" /> transforms from
+frame <img src="https://latex.codecogs.com/gif.latex?E" /> to
+frame <img src="https://latex.codecogs.com/gif.latex?S_i" /> where <img src="https://latex.codecogs.com/gif.latex?E" />
+is the reference frame and <img src="https://latex.codecogs.com/gif.latex?S_i" /> is the frame of
+sensor <img src="https://latex.codecogs.com/gif.latex?i" />.  
+Thus the transformation from Sensor <img src="https://latex.codecogs.com/gif.latex?S_0" />
+to <img src="https://latex.codecogs.com/gif.latex?S_1" /> is given by
 
 ![equation](https://latex.codecogs.com/gif.latex?P_%7BS_1%20S_0%7D%20%3D%20P_%7BS_1%20E%7D%20*%20P_%7BS_0%20E%7D%5E%7B-1%7D)
 
 #### Note:
-Most of the time, the reference frame <img src="https://latex.codecogs.com/gif.latex?E" /> coincides with the frame of a sensor e.g. <img src="https://latex.codecogs.com/gif.latex?S_0" /> (called primary).
-Then the extrinsics of this sensor is the identity and the transformation of any other sensor frame <img src="https://latex.codecogs.com/gif.latex?S_0" /> to <img src="https://latex.codecogs.com/gif.latex?S_i" /> is simply the extrinsics given for <img src="https://latex.codecogs.com/gif.latex?S_i" />.
+
+Most of the time, the reference frame <img src="https://latex.codecogs.com/gif.latex?E" /> coincides with the frame of a
+sensor e.g. <img src="https://latex.codecogs.com/gif.latex?S_0" /> (called primary). Then the extrinsics of this sensor
+is the identity and the transformation of any other sensor frame <img src="https://latex.codecogs.com/gif.latex?S_0" />
+to <img src="https://latex.codecogs.com/gif.latex?S_i" /> is simply the extrinsics given
+for <img src="https://latex.codecogs.com/gif.latex?S_i" />.
 
 ![equation](https://latex.codecogs.com/gif.latex?P_%7BS_i%20S_0%7D%20%3D%20P_%7BS_i%20E%7D)
 
-An example results file could look like the following:  
+An example results file could look like the following:
 
 ```yaml
 sensors:

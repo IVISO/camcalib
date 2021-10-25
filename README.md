@@ -22,6 +22,14 @@ from https://en.ids-imaging.com/downloads.html.
 If you encounter any problems or have a feature request you can check
 the [issues page](https://github.com/IVISO/camcalib/issues) and open a new issue.
 
+
+### System requirements
+
+Ubuntu 18.04 and 20.04.
+
+Depending on the size of your calibration data, an adequat amout of RAM (minimum 8GB) is necessary.
+
+
 ## Documentation
 
 ### Calibration Data

@@ -2,25 +2,21 @@
 
 ### Camera calibration made easy
 
-The latest version is available [here](https://github.com/IVISO/camcalib/releases).
+Check out our latest camcalib release [here](https://github.com/IVISO/camcalib/releases).
 
-You can purchase a license [here](https://www.camcalib.io/plans-pricing).
+[Upgrade](https://www.camcalib.io/plans-pricing) to a Personal, or Pro version of camcalib.
 
-You can find some charuco boards to get you started [here](https://github.com/IVISO/camcalib/tree/main/charuco_boards).
+This [guide](https://www.camcalib.io/post/create-your-own-calibration-board) will help you construct your very own calibration pattern.
 
-You can try camcalib 14 days for free. Just open the AppImage and create a demo key. The calibration results in the demo
-version are rounded. If you need results with higher precision, you need to buy a
-license [here](https://www.camcalib.io/plans-pricing).
+14 days of free camcalib Pro with our demo: on windows, simply install the latest release and lanuch camcalib. You will be given the option to start a trial. On linux simply open the AppImage and choose the option to create a demo key. Note: saving calibration results with the demo version intentionally has limited precision. The full potential of the camcalib results can be unlocked with the Personal or Pro versions that you can get [here](https://www.camcalib.io/plans-pricing).
 
-For more information visit our [website](https://www.camcalib.io/).
+Find our latest [articles](https://www.camcalib.io/blog) and news at http://camcalib.io
 
-If you want to stream data from IDS cameras you need to install the driver
-from https://en.ids-imaging.com/downloads.html.
+Try our our live calibration feature with your IDS cameras by first installing the [UEye SDK & Drivers](https://en.ids-imaging.com/downloads.html).
 
 ### Bugs and features
 
-If you encounter any problems or have a feature request you can check
-the [issues page](https://github.com/IVISO/camcalib/issues) and open a new issue.
+If you encounter any problems or have a feature request, hit up our [issues page](https://github.com/IVISO/camcalib/issues).
 
 
 ### System requirements
@@ -31,6 +27,9 @@ Depending on the size of your calibration data, an adequat amout of RAM (minimum
 
 
 ## Documentation
+Make sure to read the documentation below, but keep in mind that we are constantly updating and expanding articles and guides on our [blog](https://www.camcalib.io/blog). There are a bunch of guides and articles there to get you started with your application fast.
+
+Coming soon: camcalib tutorials and hands-on guides on youtube. Stay tuned!
 
 ### Calibration Data
 

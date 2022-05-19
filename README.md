@@ -8,7 +8,7 @@ Check out our latest camcalib release [here](https://github.com/IVISO/camcalib/r
 
 This [guide](https://www.camcalib.io/post/create-your-own-calibration-board) will help you construct your very own calibration pattern.
 
-14 days of free camcalib Pro with our demo: on windows, simply install the latest release and lanuch camcalib. You will be given the option to start a trial. On linux simply open the AppImage and choose the option to create a demo key. Note: saving calibration results with the demo version intentionally has limited precision. The full potential of the camcalib results can be unlocked with the Personal or Pro versions that you can get [here](https://www.camcalib.io/plans-pricing).
+14 days of free camcalib Pro with our demo: on windows, simply install the latest release and lanuch camcalib. You will be given the option to start a trial. On linux simply open the AppImage and choose the option to create a demo key.
 
 Find our latest [articles](https://www.camcalib.io/blog) and news at [camcalib.io](camcalib.io).
 

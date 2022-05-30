@@ -10,7 +10,7 @@ This [guide](https://www.camcalib.io/post/create-your-own-calibration-board) wil
 
 14 days of free camcalib Pro with our demo: on windows, simply install the latest release and lanuch camcalib. You will be given the option to start a trial. On linux simply open the AppImage and choose the option to create a demo key.
 
-Find our latest [articles](https://www.camcalib.io/blog) and news at [camcalib.io](camcalib.io).
+Find our latest [articles](https://www.camcalib.io/blog) and news at [camcalib.io](www.camcalib.io).
 
 Try our our live calibration feature with your IDS cameras by first installing the [UEye SDK & Drivers](https://en.ids-imaging.com/downloads.html).
 

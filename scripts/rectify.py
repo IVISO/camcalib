@@ -49,7 +49,7 @@ if __name__ == '__main__':
 
     cam0_intrinsics = cam0_calib['intrinsics']['parameters']
     cam1_intrinsics = cam1_calib['intrinsics']['parameters']
-    if cam0_calib['intrinsics']['type'] == 'PinholeRadTan' and cam1_calib['intrinsics']['type'] == 'PinholeRadTan':
+    if "PinholeRadTan" in cam0_calib['intrinsics']['type'] and 'PinholeRadTan' in cam1_calib['intrinsics']['type']:
         cv = cv2
         dist_keys = ['k1', 'k2', 'p1', 'p2']
     elif cam0_calib['intrinsics']['type'] == 'KannalaBrandt' and cam1_calib['intrinsics']['type'] == 'KannalaBrandt':

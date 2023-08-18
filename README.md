@@ -21,9 +21,9 @@ If you encounter any problems or have a feature request, hit up our [issues page
 
 ### System requirements
 
-Ubuntu 18.04 and 20.04.
+Ubuntu 18.04, 20.04 and 22.04 or Windows 10.
 
-Depending on the size of your calibration data, an adequat amout of RAM (minimum 8GB) is necessary.
+Depending on the size of your calibration data, an adequate amount of RAM (minimum 8GB) is necessary.
 
 
 ## Documentation

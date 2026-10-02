@@ -1,12 +1,50 @@
-# camcalib
+<p align="center">
+  <img src="assets/camcalib-icon.svg" width="112" alt="camcalib">
+</p>
 
-### Camera, LiDAR and IMU calibration
+<h1 align="center">camcalib</h1>
 
-camcalib calibrates the intrinsics of cameras and the extrinsics between cameras, LiDARs and IMUs
-from a recording of a calibration board. Version 2.0 is a desktop application for Ubuntu and
-Windows and a Python package for Ubuntu.
+<p align="center"><b>Calibration made easy</b><br>
+Cameras, LiDARs and IMUs, intrinsics and extrinsics, from one recording of a calibration board.</p>
 
-Download the latest release from the [releases page](https://github.com/IVISO/camcalib/releases):
+<p align="center">
+  <a href="https://github.com/IVISO/camcalib/releases"><img src="https://img.shields.io/github/v/release/IVISO/camcalib?label=release&color=1e23b4" alt="release"></a>
+  <img src="https://img.shields.io/badge/Ubuntu-24.04%20%7C%2026.04-E95420?logo=ubuntu&logoColor=white" alt="Ubuntu 24.04 and 26.04">
+  <img src="https://img.shields.io/badge/Windows-10%20%7C%2011-0078D4" alt="Windows 10 and 11">
+  <img src="https://img.shields.io/badge/Python-3.10%20%7C%203.12%20%7C%203.14-3776AB?logo=python&logoColor=white" alt="Python 3.10, 3.12 and 3.14">
+  <a href="https://www.camcalib.io"><img src="https://img.shields.io/badge/camcalib.io-website-1e23b4" alt="camcalib.io"></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/IVISO/camcalib/releases"><b>Download</b></a> ·
+  <a href="#getting-started">Getting started</a> ·
+  <a href="#recordings">Recordings</a> ·
+  <a href="#calibration-boards">Boards</a> ·
+  <a href="#camera-models">Camera models</a> ·
+  <a href="#calibration-result">Result format</a> ·
+  <a href="https://www.camcalib.io/plans-pricing">Pricing</a> ·
+  <a href="https://www.camcalib.io/blog">Blog</a> ·
+  <a href="https://github.com/IVISO/camcalib/issues">Issues</a>
+</p>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/app-load-dark.png">
+  <img src="assets/app-load-light.png" alt="camcalib 2.0: a four-camera, LiDAR and IMU recording open in the Load stage">
+</picture>
+
+camcalib 2.0 is a desktop application for Ubuntu and Windows and a Python package. Open a
+recording, describe the rig and the board, detect, calibrate, inspect, export.
+
+| | |
+|---|---|
+| **Sensors** | any number of cameras, LiDARs and IMUs; synchronised or not, with time offsets estimated |
+| **Recordings** | ROS 1 bags, MCAP, ROS 2 bags and plain folders, read without a ROS installation |
+| **Boards** | AprilBoard, ChArUco, chessboard, chessboard with markers, random dots |
+| **Camera models** | pinhole, radial-tangential (4, 5 or 8 coefficients), Kannala-Brandt fisheye, omnidirectional |
+| **Results** | camcalib YAML with uncertainties, Kalibr, ROS camera_info, OpenCV, or a Python script that repeats the calibration |
+| **Inspect** | residuals per frame and per corner, reprojection overlays, LiDAR plane errors, the rig in 3D, a live solve |
+
+### Download
 
 | file | what it is |
 |---|---|
@@ -15,8 +53,7 @@ Download the latest release from the [releases page](https://github.com/IVISO/ca
 | `camcalib-app-windows-x64.zip` | the same application as a folder to unzip and run |
 | `camcalib-2.0.0…-cp310-…whl`, `cp312`, `cp314` | the Python package for Ubuntu 22.04, 24.04 and 26.04 |
 
-[Plans and pricing](https://www.camcalib.io/plans-pricing) · [blog](https://www.camcalib.io/blog) ·
-[camcalib.io](https://www.camcalib.io) · [issues](https://github.com/IVISO/camcalib/issues)
+All of them are on the [releases page](https://github.com/IVISO/camcalib/releases).
 
 ## Getting started
 
@@ -224,6 +261,9 @@ can show the extrinsics relative to any other sensor), so the primary's extrinsi
 and every other sensor's extrinsics are its pose relative to the primary. `dt` is the sensor's
 clock offset against the reference in seconds, estimated for unsynchronised sensors when enabled.
 
+<details>
+<summary>A result file with two cameras, an IMU and a LiDAR</summary>
+
 ```yaml
 sensors:
   /cam0:
@@ -281,6 +321,8 @@ sensors:
       translation: [0.1021, 0.0034, -0.0812]
       dt: -0.0043
 ```
+
+</details>
 
 The app's **Export result…** also writes Kalibr (`camchain.yaml`, `camchain-imucam.yaml`, `imu.yaml`),
 ROS `camera_info` (one YAML per camera) and OpenCV FileStorage files, each only for the camera

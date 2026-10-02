@@ -1,7 +1,5 @@
-numpy~=1.23.5
-argparse~=1.4.0
-Pillow~=9.1.1
-CairoSVG~=2.7.0
-PyYAML~=6.0
-matplotlib~=3.5.1
-reportlab~=3.6.12
+# Python packages the scripts in this repository need. The camcalib wheel brings its own.
+numpy>=1.24
+opencv-contrib-python>=4.7     # ArUco and AprilTag drawing, stereo rectification
+PyYAML>=6.0
+Pillow>=9.0                    # PNG files that carry their print resolution

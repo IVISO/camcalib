@@ -48,10 +48,10 @@ recording, describe the rig and the board, detect, calibrate, inspect, export.
 
 | file | what it is |
 |---|---|
-| `camcalib-app_2.1.1-1.ubuntu24.04_amd64.deb`, `…ubuntu26.04…` | the desktop application for Ubuntu 24.04 and 26.04 |
-| `camcalib-app-2.1.1-windows-x64.msi` | the Windows installer (Program Files\camcalib, Start Menu entry) |
-| `camcalib-app-2.1.1-windows-x64.zip` | the same application as a folder to unzip and run |
-| `camcalib-2.1.1…-cp310-…whl`, `cp312`, `cp314` | the Python package for Ubuntu 22.04, 24.04 and 26.04 |
+| `camcalib-app_2.1.2-1.ubuntu24.04_amd64.deb`, `…ubuntu26.04…` | the desktop application for Ubuntu 24.04 and 26.04 |
+| `camcalib-app-2.1.2-windows-x64.msi` | the Windows installer (Program Files\camcalib, Start Menu entry) |
+| `camcalib-app-2.1.2-windows-x64.zip` | the same application as a folder to unzip and run |
+| `camcalib-2.1.2…-cp310-…whl`, `cp312`, `cp314` | the Python package for Ubuntu 22.04, 24.04 and 26.04 |
 
 All of them are on the [releases page](https://github.com/IVISO/camcalib/releases).
 
@@ -59,7 +59,7 @@ All of them are on the [releases page](https://github.com/IVISO/camcalib/release
 
 ### Desktop application
 
-Ubuntu: `sudo apt install ./camcalib-app_2.1.1-1.ubuntu24.04_amd64.deb` (apt pulls in the Qt and
+Ubuntu: `sudo apt install ./camcalib-app_2.1.2-1.ubuntu24.04_amd64.deb` (apt pulls in the Qt and
 OpenCV libraries it needs), then start **camcalib** from the launcher or run `camcalib-app`.
 Windows: run the MSI, or unzip the folder and start `camcalib-app.exe`.
 
@@ -103,7 +103,7 @@ Install the wheel that matches your Ubuntu release and its Python (3.10 on 22.04
 that package too:
 
 ```bash
-pip install camcalib-2.1.1*-cp312-*.whl
+pip install camcalib-2.1.2*-cp312-*.whl
 ```
 
 The shortest way to a working script is the app: **Inspect & Export → Export Python script…**
